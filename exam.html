@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <style type="text/css" media="all">
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      body {
+        min-height: 100vh;
+      }
+      .video-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      header {
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        background: rgba(128, 128, 128, 0.35);
+        color: white;
+        z-index: 2;
+        border-bottom: 1px solid #fff;
+        border-top: 1px solid #fff;
+      }
+      .temp {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .temp img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0;
+      }
+      .header-nav {
+        display: none;
+      }
+      .header-buttons {
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+      .header-buttons a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        transition: all 0.6s ease;
+        margin: 10px;
+      }
+      .header-buttons a:hover {
+        color: white;
+        border-bottom: 2px solid white;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      header p {
+        font-size: 200%;
+        align-self: center;
+      }
+      .container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.35);
+        padding: 20px;
+      }
+      a[href="exam"] {
+        background: gold;
+        color: black;
+      }
+      a[href="exam"]:hover {
+        background: gold;
+        color: black;
+      }
+      .main {
+        width: 100%;
+      }
+
+      .info {
+        padding: 10px;
+        width: 100%;
+        margin: 20px;
+        background: rgba(128, 128, 128, 0.35);
+        border: 1px solid #fff;
+        border-radius: 10px;
+        word-wrap: break-word;
+      }
+    
+      .thumbnail {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 50px;
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .exam-btns {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 10px;
+        flex-wrap: wrap;
+      }
+
+      .exam-btns button {
+        min-width: 150px;
+        padding: 12px 22px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+        backdrop-filter: blur(6px);
+      }
+
+      .exam-btns button:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.22);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .exam-btns button[titeNiJulian="take"] {
+        background: #ffcd00;
+        color: #111;
+        border: 1px solid #fff;
+        font-weight: 700;
+      }
+
+      .exam-btns button[titeNiJulian="take"]:hover {
+        background: #ffd633;
+      }
+
+      .server-questions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .first {
+        width: 100%;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 14px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        text-align: left;
+        transition: box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      .first:hover {
+        background: rgba(255, 255, 255, 0.16);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .first p {
+        font-size: 110%;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+      }
+
+      .first-response {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .first-response label {
+        cursor: pointer;
+      }
+
+      .first-response input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        accent-color: #ffcd00;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+
+      @media (max-width: 768px) {
+        .header-buttons {
+          position: absolute;
+          background: gray;
+          flex-direction: column;
+          top: 60px;
+          right: 10px;
+          border-radius: 0 0 20%;
+          border: 1px solid #fff;
+          border-top: none;
+        }
+        .header-buttons.show {
+          display: flex;
+        }
+        .header-nav {
+          display: block;
+          font-size: 200%;
+          padding: 10px;
+          cursor: pointer;
+        }
+        .thumbnail {
+          margin-top: 50px;
+          width: 100%;
+          overflow: hidden;
+        }
+        .thumbnail img {
+          object-fit: cover;
+          width: 100%;
+          height: auto;
+        }
+        .exam-btns {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .exam-btns button {
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="https://trecemulti.vercel.app/images/bg-home.mp4" type="video/mp4">
+    </video>
+
+    <header>
+      <div class="temp">
+        <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="" />
+        <p>One City</p>
+      </div>
+      <div class="header-nav" onclick="showBtns()">=</div>
+      <div class="header-buttons">
+        <a href="https://onecity.vercel.app/">home</a>
+        <a href="about">about</a>
+        <a href="exam">exam</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="thumbnail">
+        <img src="https://lanceehux.github.io/onecity/exam.png" alt="" />
+      </div>
+      <div class="info">
+        <h1>Exam ....</h1>
+          <p>to enter the city, ....</p>
+      </div>
+      <div class="exam-btns">
+        <button type="submit" titeNiJulian="take" onclick="takeExam()">Take Exam</button>
+        <button type="submit" >Check Exam</button>
+      </div>
+      <div class="container-exam" style="width: 100%">
+        <div class="user-info" style="display: flex; flex-direction: column; gap: 10px">
+          <label for="name" style="align-self: center;">Enter Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter Your Name" required
+          
+          style="
+          padding: 10px;
+          width: 50%;
+          align-self: center;
+          "
+          />
+        </div>
+        <div class="server-questions" style="width: 100%">
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+          <div class="first">
+            <p>1. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" charset="utf-8">
+  let i = true;
+  function showBtns() {
+    let status = i === true ? document.querySelector(".header-buttons").classList.add("show") : document.querySelector(".header-buttons").classList.remove("show");
+    i = !i;
+  }
+
+  // EXAM FUNCTION
+  function takeExam() {
+    document.querySelector(".container-exam").style.display = "block";
+  }
+  </script>
+</html>
