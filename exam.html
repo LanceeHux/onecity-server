@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://onecityrp.vercel.app/">
-    <meta property="og:title" content="One City ">
-    <meta property="og:description" content="One City Serious Roleplay - Introduction, About The Community, Personnel, and Entrance Exam">
-    <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg"> <!-- Recommended size: 1200x630 -->
-    <meta property="og:site_name" content="One City Serious Roleplay">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One City SRP - Exam</title>
+    <title>Hello, World!</title>
     <style type="text/css" media="all">
       * {
         margin: 0;
@@ -138,7 +131,7 @@
         flex-wrap: wrap;
       }
 
-      .exam-btns button {
+      .exam-btns button, button[titeNiJulian="take"] {
         min-width: 150px;
         padding: 12px 22px;
         letter-spacing: 2px;
@@ -152,13 +145,13 @@
         backdrop-filter: blur(6px);
       }
 
-      .exam-btns button:hover {
+      .exam-btns button:hover, button[titeNiJulian="take"]:hover {
         transform: translateY(-2px);
         background: rgba(255, 255, 255, 0.22);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
 
-      .exam-btns button[titeNiJulian="take"] {
+      .exam-btns button[titeNiJulian="take"], button[titeNiJulian="take"] {
         background: #ffcd00;
         color: #111;
         border: 1px solid #fff;
@@ -167,6 +160,48 @@
 
       .exam-btns button[titeNiJulian="take"]:hover {
         background: #ffd633;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 14px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .user-info label {
+        font-size: 110%;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .user-info input[type="text"] {
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        font-size: 100%;
+        outline: none;
+        transition: background 0.3s ease, border 0.3s ease;
+      }
+
+      .user-info input[type="text"]::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .user-info input[type="text"]:focus {
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid #ffcd00;
       }
 
       .server-questions {
@@ -218,18 +253,31 @@
         cursor: pointer;
         vertical-align: middle;
       }
-
+      .container-exam {
+        display:none;
+      }
+      .verify-overlay {
+        background: rgba(128, 128, 128, 0.9);
+        color: white;
+        border: 1px solid #fff;
+        padding: 10px;
+        width: 60%;
+        border-radius: 6px;
+        position: absolute;
+        text-align: center;
+        display:none;
+      }
       @media (max-width: 768px) {
         .header-buttons {
           position: absolute;
           background: gray;
+          display: none;
           flex-direction: column;
           top: 60px;
           right: 10px;
           border-radius: 0 0 20%;
           border: 1px solid #fff;
           border-top: none;
-          display:none;
         }
         .header-buttons.show {
           display: flex;
@@ -271,11 +319,11 @@
         <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="" />
         <p>One City</p>
       </div>
-      <div class="header-nav" onclick="showBtns()">=</div>
+      <div class="header-nav" onclick="onecity.showBtns()">=</div>
       <div class="header-buttons">
-        <a href="https://onecityrp.vercel.app/">home</a>
-        <a href="about">about</a>
-        <a href="exam">exam</a>
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="exam.html">exam</a>
       </div>
     </header>
 
@@ -288,92 +336,105 @@
           <p>to enter the city, ....</p>
       </div>
       <div class="exam-btns">
-        <button type="submit" titeNiJulian="take" onclick="takeExam()">Take Exam</button>
+        <button type="submit" titeNiJulian="take" onclick="onecity.takeExam()">Take Exam</button>
         <button type="submit" >Check Exam</button>
       </div>
+      <div class="verify-overlay">
+        <p>Checking Submitted Answers . . . (.../5)</p>
+      </div>
       <div class="container-exam" style="width: 100%">
-        <div class="user-info" style="display: flex; flex-direction: column; gap: 10px">
-          <label for="name" style="align-self: center;">Enter Your Name:</label>
-          <input type="text" id="name" name="name" placeholder="Enter Your Name" required
-          
-          style="
-          padding: 10px;
-          width: 50%;
-          align-self: center;
-          "
-          />
+        <div class="user-info">
+          <label for="name">Enter Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter Your Name" required/>
         </div>
         <div class="server-questions" style="width: 100%">
           <div class="first">
             <p>1. What is dgfchvjbnm,?</p>
             <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+              <label><input type="checkbox" name="q1" value="a" class="q1" onclick="onecity.validate(1, this, 'a')"/> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" class="q1" onclick="onecity.validate(1, this, 'b')"/> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" class="q1" onclick="onecity.validate(1, this, 'c')"/> Answer 3</label>
             </div>
           </div>
           <div class="first">
-            <p>1. What is dgfchvjbnm,?</p>
+            <p>3. What is dgfchvjbnm,?</p>
             <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+              <label><input type="checkbox" name="q1" value="a" class="q2" onclick="onecity.validate(2, this, 'c')"/> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" class="q2" onclick="onecity.validate(2, this, 'c')"/> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" class="q2" onclick="onecity.validate(2, this, 'c')"/> Answer 3</label>
             </div>
           </div>
           <div class="first">
-            <p>1. What is dgfchvjbnm,?</p>
+            <p>4. What is dgfchvjbnm,?</p>
             <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+              <label><input type="checkbox" name="q1" value="a" class="q3" onclick="onecity.validate(3, this, 'c')"/> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" class="q3" onclick="onecity.validate(3, this, 'c')"/> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" class="q3" onclick="onecity.validate(3, this, 'c')"/> Answer 3</label>
+            </div>
+          </div><div class="first">
+            <p>5. What is dgfchvjbnm,?</p>
+            <div class="first-response">
+              <label><input type="checkbox" name="q1" value="a" class="q4" onclick="onecity.validate(4, this, 'c')"/> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" class="q4" onclick="onecity.validate(4, this, 'c')"/> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" class="q4" onclick="onecity.validate(4, this, 'c')"/> Answer 3</label>
             </div>
           </div>
           <div class="first">
-            <p>1. What is dgfchvjbnm,?</p>
+            <p>5. What is dgfchvjbnm,?</p>
             <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
+              <label><input type="checkbox" name="q1" value="a" class="q5" onclick="onecity.validate(5, this, 'c')"/> Answer 1</label>
+              <label><input type="checkbox" name="q1" value="b" class="q5" onclick="onecity.validate(5, this, 'c')"/> Answer 2</label>
+              <label><input type="checkbox" name="q1" value="c" class="q5" onclick="onecity.validate(5, this, 'c')"/> Answer 3</label>
             </div>
           </div>
-          <div class="first">
-            <p>1. What is dgfchvjbnm,?</p>
-            <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
-            </div>
-          </div>
-          <div class="first">
-            <p>1. What is dgfchvjbnm,?</p>
-            <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
-            </div>
-          </div>
-          <div class="first">
-            <p>1. What is dgfchvjbnm,?</p>
-            <div class="first-response">
-              <label><input type="checkbox" name="q1" value="a" /> Answer 1</label>
-              <label><input type="checkbox" name="q1" value="b" /> Answer 2</label>
-              <label><input type="checkbox" name="q1" value="c" /> Answer 3</label>
-            </div>
-          </div>
+            <button titeNiJulian="take" type="submit" onclick="onecity.submit();">Submit</button>
         </div>
       </div>
     </div>
   </body>
   <script type="text/javascript" charset="utf-8">
-  let i = true;
-  function showBtns() {
-    let status = i === true ? document.querySelector(".header-buttons").classList.add("show") : document.querySelector(".header-buttons").classList.remove("show");
-    i = !i;
-  }
+  // variables here
+  const verifyOverlay = document.querySelector(".verify-overlay");
+  let i = true; // for showBtns <nav>
+  let forNumber = [
+    { answer: null, correct: 'a' }, // array of 0 || number 1
+    { answer: null, correct: 'a' }, // array of 1 || number 2
+    { answer: null, correct: 'b' }, // array of 2 || number 3
+    { answer: null, correct: 'c' }, // array of 3 || number 4
+    { answer: null, correct: 'a' } // array of 4 || number 5
+  ];
 
   // EXAM FUNCTION
-  function takeExam() {
-    document.querySelector(".container-exam").style.display = "block";
+  class Functions {
+    showBtns() {
+      let status = i === true ? document.querySelector(".header-buttons").classList.add("show") : document.querySelector(".header-buttons").classList.remove("show");
+      i = !i;
+    }
+    takeExam() {
+      document.querySelector(".container-exam").style.display = "block";
+    }
+    validate(number, current, answer) {
+      const boxes = document.querySelectorAll(`.q${number}`);
+      boxes.forEach(box => {
+        if (box !== current) box.checked = false;
+      });
+      forNumber[number-1].answer = answer;
+    }
+    submit() {
+     if(forNumber[0].answer && forNumber[1].answer && forNumber[2].answer && forNumber[3].answer && forNumber[4].answer) {
+      this.checkAnswers();
+      return;
+     }
+      alert("answer all the questions!");
+    }
+    checkAnswers() {
+      if (forNumber[0].answer === forNumber[0].correct && forNumber[1].answer === forNumber[1].correct && forNumber[2].answer === forNumber[2].correct && forNumber[3].answer === forNumber[3].correct && forNumber[4].answer === forNumber[4].correct) {
+        alert("passed");
+      }
+    }
   }
+const onecity = new Functions();
+
+
   </script>
 </html>
