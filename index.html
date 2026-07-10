@@ -8,234 +8,9 @@
     <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg"> <!-- Recommended size: 1200x630 -->
     <meta property="og:site_name" content="One City Serious Roleplay">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/index.css" title="" type="" />
     <title>One City SRP - Home</title>
-    <style type="text/css" media="all">
-      * {
-        margin: 0;
-        box-sizing: border-box;
-        font-family: sans-serif;
-      }
-      body {
-        min-height: 100vh;
-      }
-      .video-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
-      header {
-        position: absolute;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 10px;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        background: rgba(128, 128, 128, 0.35);
-        color: white;
-        z-index: 2;
-        border-bottom: 1px solid #fff;
-        border-top: 1px solid #fff;
-      }
-      .temp {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .temp img {
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin: 0;
-      }
-      .header-nav {
-        display: none;
-        cursor: pointer;
-      }
-      .header-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .header-buttons a {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
-        transition: all 0.6s ease;
-        margin: 10px;
-      }
-      .header-buttons a:hover {
-        color: white;
-        border-bottom: 2px solid white;
-        text-decoration: none;
-        padding: 10px;
-        border-radius: 10px;
-      }
-      header p {
-        font-size: 200%;
-        align-self: center;
-      }
-      .container {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        background: rgba(0, 0, 0, 0.35);
-        padding: 20px;
-      }
-      a[href="exam"]:hover {
-        background: gold;
-        color: black
-      }
-      .main {
-        width:100%
-      }
-
-      .info {
-        padding: 10px;
-        width: 100%;
-        margin: 20px;
-        background: rgba(128, 128, 128, 0.35);
-        border: 1px solid #fff;
-        border-radius: 10px;
-        word-wrap: break-word;
-
-      }
-      .profiles {
-        width: 100%;
-      }
-      .profiles h1 {
-        align-self: center;
-        justify-self: center;
-      }
-      .admin-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-      }
-      .admin {
-        width: 280px;
-        height: 300px;
-        overflow:hidden;
-        border-radius: 10px;
-        border: 1px solid lightblue;
-        position: relative;
-        margin: 10px;
-      }
-      .admin img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
-      .dark-overlay {
-        position: absolute;
-        top: 0;
-        width: 280px;
-        height: 300px;
-        background: linear-gradient(to top,rgb(0,0,0,1), rgb(0,0,0,0))
-      }
-      .admin .user-info {
-        position: absolute;
-        bottom: 0;
-        left: 30%;
-        justify-items: center;
-        margin: 10px;
-      }
-    
-      .thumbnail {
-        width: 50%;
-        margin-top:50px;
-      }
-
-      .thumbnail img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .admin code {
-        position:absolute;
-        top: 0;
-        z-index:3;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 3;
-        color: white;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 4px 8px;
-        border-radius: 6px;
-      }
-      .admin code.second {
-        position:absolute;
-        top: 0;
-        z-index:3;
-        position: absolute;
-        top: 40px;
-        left: 10px;
-        z-index: 3;
-        color: white;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 4px 8px;
-        border-radius: 6px;
-      }
-      /*moderator css*/
-      .moderator-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-      .moderators {
-        margin-top: 10px;
-      }
-      @media (max-width: 768px) {
-        .header-buttons {
-          position:absolute;
-          background: gray;
-          flex-direction: column;
-          top: 60px;
-          right: 10px;
-          border-radius: 0 0 20%;
-          border: 1px solid #fff;
-          border-top: none;
-          display: none;
-        }
-        .header-buttons.show {
-          display: flex;
-        }
-        .header-nav {
-          display: block;
-          font-size: 200%;
-          padding: 10px;
-        }
-        .thumbnail {
-          margin-top:20px;
-          width: 100%;
-          overflow:hidden;
-         }
-         .thumbnail img {
-          object-fit:cover;
-          width:100%;
-          height:auto;
-         }
-         .admin-list {
-          justify-content: center;
-         }
-         .admin {
-          justify-self:center;
-         }
-      }
-    </style>
   </head>
   <body>
     <video class="video-bg" autoplay muted loop playsinline>
@@ -249,21 +24,85 @@
       </div>
       <div class="header-nav" onclick="showBtns()">=</div>
       <div class="header-buttons">
-        <a href="https://onecityrp.vercel.app/">home</a>
-        <a href="about">about</a>
-        <a href="exam">exam</a>
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="exam.html">exam</a>
       </div>
     </header>
 
     <div class="container">
-      <div class="thumbnail">
-        <img src="https://lynxlab.vercel.app/onecity/home.png" alt="" />
+        <h1 titeNiJulian="title">ONE CITY - ROLEPLAY</h1>
+        <div class="info">
+          <h1>One City </h1>
+            <p>Info texts lorem ipsum rasgkhbvnarsilkvbnasilkbawrsikbnawsfibaweslfikhbawes rplace thi replace this</p>
+        </div>
+    </div>
+    <div class="info-container">
+      <div class="faqs-container">
+        <h3 style="color:#ffcd00">What Do We Have Here?</h3>
+        <li>
+          <a href="Abous Us">Abous Us</a>
+          <a href="Exam">Exam</a>
+          <a href="Player Inventory">Player Inventory</a>
+        </li>
       </div>
-      <div class="info">
-        <h1>One City </h1>
-          <p>Info texts lorem ipsum rasgkhbvnarsilkvbnasilkbawrsikbnawsfibaweslfikhbawes rplace thi replace this</p>
+      <div class="main-container">
+        <h3 style="color:#ffcd00">How to Enter the City?</h3>
+        <li>
+          <p>Go to the Exam Page</p>
+          <p>Enter your In-game Name</p>
+          <p>Answer the exam truthfully</p>
+          <p>Pass the exam and get the Server IP and connect to your in-game inventory through online!</p>
+        </li>
       </div>
-      </div>
+    </div>
+    <footer class="footer-twotier" role="contentinfo">
+        
+        <!-- Top Tier: Main navigation and information -->
+        <div class="footer-twotier__top">
+            <div class="footer-twotier__top-container">
+                <div class="footer-twotier__brand">
+                     <svg class="logo" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitleTiered">
+                        <title id="logoTitleTiered">Logo</title>
+                        <text x="0" y="25" font-family="Arial, sans-serif" font-size="25" font-weight="bold">One City</text>
+                     </svg>
+                     <p>A reborn city that awaken from the pandemic--seeks peaceful and kindness towards each citizen.</p>
+                </div>
+                <div class="footer-twotier__links">
+                    <h3 class="footer-twotier__heading">Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Exam</a></li>
+                        <li><a href="#">Player Online UI</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-twotier__links">
+                    <h3 class="footer-twotier__heading">Connect With Us</h3>
+                    <ul>
+                        <li><a href="#" style="background: blue;">Facebook</a></li>
+                        <li><a href="#" style="background: #5865F2">Discord</a></li>
+                        <li> <a href="#" style="background: red">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Tier: Copyright and social links -->
+        <div class="footer-twotier__bottom">
+            <div class="footer-twotier__bottom-container">
+                <p class="footer-twotier__copyright">
+                    &copy; 2026 One City Roleplay, Inc. All rights reserved.
+                </p>
+                <nav class="footer-twotier__social" aria-label="Social Media">
+                    <ul>
+                        <li><a href="#" aria-label="Our Twitter Profile"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.223.085 4.93 4.93 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a></li>
+                        <li><a href="#" aria-label="Our GitHub Profile"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </footer>
 
      
   </body>
