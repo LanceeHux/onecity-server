@@ -675,3 +675,24 @@ li a:hover::before {
     text-align: left;
   }
 }
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+.submit-container button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffcd00, #ffb700);
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.submit-container button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}

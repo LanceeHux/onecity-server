@@ -20,7 +20,7 @@
         <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="" />
         <p>One City</p>
       </div>
-      <div class="header-nav" onclick="showBtns()">=</div>
+      <div class="header-nav" onclick="func.showBtns()">=</div>
       <div class="header-buttons">
         <a href="index.html">home</a>
         <a href="about.html">about</a>
@@ -46,28 +46,173 @@
           </div>
         <div class="questions-container" id="questions-container">
           <div class="question">
-            <h3 id="q1-question">Question 1 here</h3>
+            <h3 id="q1-question">Question 1</h3>
             <div class="choices">
               <input type="checkbox" id="q1-choice1-btn" />
-              <label for="q1-choice1" id="q1-choice1-answer">Choice 1</label>
+              <label for="q1-choice1" id="q1-choice1-answer" onclick="func.getUserAnswer(func.q1Choice1Btn, func.q1Choice2Btn, func.q1Choice3Btn)">Choice 1</label>
               <input type="checkbox" id="q1-choice2-btn" />
-              <label for="q1-choice2" id="q1-choice2-answer">Choice 2</label>
+              <label for="q1-choice2" id="q1-choice2-answer" onclick="func.getUserAnswer(func.q1Choice1Btn, func.q1Choice2Btn, func.q1Choice3Btn)">Choice 2</label>
               <input type="checkbox" id="q1-choice3-btn" />
-              <label for="q1-choice3" id="q1-choice3-answer">Choice 3</label>
+              <label for="q1-choice3" id="q1-choice3-answer" onclick="func.getUserAnswer(func.q1Choice1Btn, func.q1Choice2Btn, func.q1Choice3Btn)">Choice 3</label>
             </div>
           </div>
           <div class="question">
-            <h3 id="q2-question">Question 2 here</h3>
+            <h3 id="q2-question">Question 2</h3>
             <div class="choices">
               <input type="checkbox" id="q2-choice1-btn" />
-              <label for="q2-choice1" id="q2-choice1-answer">Choice 1</label>
+              <label for="q2-choice1" id="q2-choice1-answer" onclick="func.getUserAnswer(func.q2Choice1Btn, func.q2Choice2Btn, func.q2Choice3Btn)">Choice 1</label>
               <input type="checkbox" id="q2-choice2-btn" />
-              <label for="q2-choice2" id="q2-choice2-answer">Choice 2</label>
+              <label for="q2-choice2" id="q2-choice2-answer" onclick="func.getUserAnswer(func.q2Choice1Btn, func.q2Choice2Btn, func.q2Choice3Btn)">Choice 2</label>
               <input type="checkbox" id="q2-choice3-btn" />
-              <label for="q2-choice3" id="q2-choice3-answer">Choice 3</label>
+              <label for="q2-choice3" id="q2-choice3-answer" onclick="func.getUserAnswer(func.q2Choice1Btn, func.q2Choice2Btn, func.q2Choice3Btn)">Choice 3</label>
             </div>
           </div>
+          <div class="question">
+            <h3 id="q3-question">Question 3</h3>
+            <div class="choices">
+              <input type="checkbox" id="q3-choice1-btn" />
+              <label for="q3-choice1" id="q3-choice1-answer" onclick="func.getUserAnswer(func.q3Choice1Btn, func.q3Choice2Btn, func.q3Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q3-choice2-btn" />
+              <label for="q3-choice2" id="q3-choice2-answer" onclick="func.getUserAnswer(func.q3Choice1Btn, func.q3Choice2Btn, func.q3Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q3-choice3-btn" />
+              <label for="q3-choice3" id="q3-choice3-answer" onclick="func.getUserAnswer(func.q3Choice1Btn, func.q3Choice2Btn, func.q3Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q4-question">Question 4</h3>
+            <div class="choices">
+              <input type="checkbox" id="q4-choice1-btn" />
+              <label for="q4-choice1" id="q4-choice1-answer" onclick="func.getUserAnswer(func.q4Choice1Btn, func.q4Choice2Btn, func.q4Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q4-choice2-btn" />
+              <label for="q4-choice2" id="q4-choice2-answer" onclick="func.getUserAnswer(func.q4Choice1Btn, func.q4Choice2Btn, func.q4Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q4-choice3-btn" />
+              <label for="q4-choice3" id="q4-choice3-answer" onclick="func.getUserAnswer(func.q4Choice1Btn, func.q4Choice2Btn, func.q4Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q5-question">Question 5</h3>
+            <div class="choices">
+              <input type="checkbox" id="q5-choice1-btn" />
+              <label for="q5-choice1" id="q5-choice1-answer" onclick="func.getUserAnswer(func.q5Choice1Btn, func.q5Choice2Btn, func.q5Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q5-choice2-btn" />
+              <label for="q5-choice2" id="q5-choice2-answer" onclick="func.getUserAnswer(func.q5Choice1Btn, func.q5Choice2Btn, func.q5Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q5-choice3-btn" />
+              <label for="q5-choice3" id="q5-choice3-answer" onclick="func.getUserAnswer(func.q5Choice1Btn, func.q5Choice2Btn, func.q5Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q6-question">Question 6</h3>
+            <div class="choices">
+              <input type="checkbox" id="q6-choice1-btn" />
+              <label for="q6-choice1" id="q6-choice1-answer" onclick="func.getUserAnswer(func.q6Choice1Btn, func.q6Choice2Btn, func.q6Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q6-choice2-btn" />
+              <label for="q6-choice2" id="q6-choice2-answer" onclick="func.getUserAnswer(func.q6Choice1Btn, func.q6Choice2Btn, func.q6Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q6-choice3-btn" />
+              <label for="q6-choice3" id="q6-choice3-answer" onclick="func.getUserAnswer(func.q6Choice1Btn, func.q6Choice2Btn, func.q6Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q7-question">Question 7</h3>
+            <div class="choices">
+              <input type="checkbox" id="q7-choice1-btn" />
+              <label for="q7-choice1" id="q7-choice1-answer" onclick="func.getUserAnswer(func.q7Choice1Btn, func.q7Choice2Btn, func.q7Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q7-choice2-btn" />
+              <label for="q7-choice2" id="q7-choice2-answer" onclick="func.getUserAnswer(func.q7Choice1Btn, func.q7Choice2Btn, func.q7Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q7-choice3-btn" />
+              <label for="q7-choice3" id="q7-choice3-answer" onclick="func.getUserAnswer(func.q7Choice1Btn, func.q7Choice2Btn, func.q7Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q8-question">Question 8</h3>
+            <div class="choices">
+              <input type="checkbox" id="q8-choice1-btn" />
+              <label for="q8-choice1" id="q8-choice1-answer" onclick="func.getUserAnswer(func.q8Choice1Btn, func.q8Choice2Btn, func.q8Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q8-choice2-btn" />
+              <label for="q8-choice2" id="q8-choice2-answer" onclick="func.getUserAnswer(func.q8Choice1Btn, func.q8Choice2Btn, func.q8Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q8-choice3-btn" />
+              <label for="q8-choice3" id="q8-choice3-answer" onclick="func.getUserAnswer(func.q8Choice1Btn, func.q8Choice2Btn, func.q8Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q9-question">Question 9</h3>
+            <div class="choices">
+              <input type="checkbox" id="q9-choice1-btn" />
+              <label for="q9-choice1" id="q9-choice1-answer" onclick="func.getUserAnswer(func.q9Choice1Btn, func.q9Choice2Btn, func.q9Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q9-choice2-btn" />
+              <label for="q9-choice2" id="q9-choice2-answer" onclick="func.getUserAnswer(func.q9Choice1Btn, func.q9Choice2Btn, func.q9Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q9-choice3-btn" />
+              <label for="q9-choice3" id="q9-choice3-answer" onclick="func.getUserAnswer(func.q9Choice1Btn, func.q9Choice2Btn, func.q9Choice3Btn)">Choice 3</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3 id="q10-question">Question 10</h3>
+            <div class="choices">
+              <input type="checkbox" id="q10-choice1-btn" />
+              <label for="q10-choice1" id="q10-choice1-answer" onclick="func.getUserAnswer(func.q10Choice1Btn, func.q10Choice2Btn, func.q10Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q10-choice2-btn" />
+              <label for="q10-choice2" id="q10-choice2-answer" onclick="func.getUserAnswer(func.q10Choice1Btn, func.q10Choice2Btn, func.q10Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q10-choice3-btn" />
+              <label for="q10-choice3" id="q10-choice3-answer" onclick="func.getUserAnswer(func.q10Choice1Btn, func.q10Choice2Btn, func.q10Choice3Btn)">Choice 3</label>
+            </div>
         </div>
+        <div class="question">
+            <h3 id="q11-question">Question 11</h3>
+            <div class="choices">
+              <input type="checkbox" id="q11-choice1-btn" />
+              <label for="q11-choice1" id="q11-choice1-answer" onclick="func.getUserAnswer(func.q11Choice1Btn, func.q11Choice2Btn, func.q11Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q11-choice2-btn" />
+              <label for="q11-choice2" id="q11-choice2-answer" onclick="func.getUserAnswer(func.q11Choice1Btn, func.q11Choice2Btn, func.q11Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q11-choice3-btn" />
+              <label for="q11-choice3" id="q11-choice3-answer" onclick="func.getUserAnswer(func.q11Choice1Btn, func.q11Choice2Btn, func.q11Choice3Btn)">Choice 3</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3 id="q12-question">Question 12</h3>
+            <div class="choices">
+              <input type="checkbox" id="q12-choice1-btn" />
+              <label for="q12-choice1" id="q12-choice1-answer" onclick="func.getUserAnswer(func.q12Choice1Btn, func.q12Choice2Btn, func.q12Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q12-choice2-btn" />
+              <label for="q12-choice2" id="q12-choice2-answer" onclick="func.getUserAnswer(func.q12Choice1Btn, func.q12Choice2Btn, func.q12Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q12-choice3-btn" />
+              <label for="q12-choice3" id="q12-choice3-answer" onclick="func.getUserAnswer(func.q12Choice1Btn, func.q12Choice2Btn, func.q12Choice3Btn)">Choice 3</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3 id="q13-question">Question 13</h3>
+            <div class="choices">
+              <input type="checkbox" id="q13-choice1-btn" />
+              <label for="q13-choice1" id="q13-choice1-answer" onclick="func.getUserAnswer(func.q13Choice1Btn, func.q13Choice2Btn, func.q13Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q13-choice2-btn" />
+              <label for="q13-choice2" id="q13-choice2-answer" onclick="func.getUserAnswer(func.q13Choice1Btn, func.q13Choice2Btn, func.q13Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q13-choice3-btn" />
+              <label for="q13-choice3" id="q13-choice3-answer" onclick="func.getUserAnswer(func.q13Choice1Btn, func.q13Choice2Btn, func.q13Choice3Btn)">Choice 3</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3 id="q14-question">Question 14</h3>
+            <div class="choices">
+              <input type="checkbox" id="q14-choice1-btn" />
+              <label for="q14-choice1" id="q14-choice1-answer" onclick="func.getUserAnswer(func.q14Choice1Btn, func.q14Choice2Btn, func.q14Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q14-choice2-btn" />
+              <label for="q14-choice2" id="q14-choice2-answer" onclick="func.getUserAnswer(func.q14Choice1Btn, func.q14Choice2Btn, func.q14Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q14-choice3-btn" />
+              <label for="q14-choice3" id="q14-choice3-answer" onclick="func.getUserAnswer(func.q14Choice1Btn, func.q14Choice2Btn, func.q14Choice3Btn)">Choice 3</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3 id="q15-question">Question 15</h3>
+            <div class="choices">
+              <input type="checkbox" id="q15-choice1-btn" />
+              <label for="q15-choice1" id="q15-choice1-answer" onclick="func.getUserAnswer(func.q15Choice1Btn, func.q15Choice2Btn, func.q15Choice3Btn)">Choice 1</label>
+              <input type="checkbox" id="q15-choice2-btn" />
+              <label for="q15-choice2" id="q15-choice2-answer" onclick="func.getUserAnswer(func.q15Choice1Btn, func.q15Choice2Btn, func.q15Choice3Btn)">Choice 2</label>
+              <input type="checkbox" id="q15-choice3-btn" />
+              <label for="q15-choice3" id="q15-choice3-answer" onclick="func.getUserAnswer(func.q15Choice1Btn, func.q15Choice2Btn, func.q15Choice3Btn)">Choice 3</label>
+            </div>
+        </div>
+      </div>
+      <div class="submit-container">
+        <button type="submit" onclick="func.submitExam()"  id="submit-btn" disabled>Submit Exam</button>
       </div>
     </div>
     <footer class="footer-twotier" role="contentinfo">
@@ -118,5 +263,5 @@
 
     </footer>
   </body>
-  <script type="text/javascript" charset="utf-8" href="js/index.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
 </html>
