@@ -44,27 +44,27 @@
             <label for="Name">In-game Name:</label>
             <input id="name-input" type="text" id="" value="" required/>
           </div>
-        <div class="questions-container">
+        <div class="questions-container" id="questions-container">
           <div class="question">
-            <h3>1. Who is the developer of this?</h3>
+            <h3 id="q1-question">Question 1 here</h3>
             <div class="choices">
-              <input type="checkbox" onclick="func.validate(this, 'A')"/>
-              Charles 
-              <input type="checkbox" name="" id="" onclick="func.validate(this, 'B')"/> 
-              Julian
-              <input type="checkbox" name="" id="" onclick="func.validate(this, 'C')"/>
-              Regine Velazquez
+              <input type="checkbox" id="q1-choice1-btn" />
+              <label for="q1-choice1" id="q1-choice1-answer">Choice 1</label>
+              <input type="checkbox" id="q1-choice2-btn" />
+              <label for="q1-choice2" id="q1-choice2-answer">Choice 2</label>
+              <input type="checkbox" id="q1-choice3-btn" />
+              <label for="q1-choice3" id="q1-choice3-answer">Choice 3</label>
             </div>
           </div>
           <div class="question">
-            <h3>2. Who is the game developer?</h3>
+            <h3 id="q2-question">Question 2 here</h3>
             <div class="choices">
-              <input type="checkbox" />
-              Charles 
-              <input type="checkbox" name="" id="" /> 
-              Julian
-              <input type="checkbox" name="" id="" />
-              Regine Velazquez
+              <input type="checkbox" id="q2-choice1-btn" />
+              <label for="q2-choice1" id="q2-choice1-answer">Choice 1</label>
+              <input type="checkbox" id="q2-choice2-btn" />
+              <label for="q2-choice2" id="q2-choice2-answer">Choice 2</label>
+              <input type="checkbox" id="q2-choice3-btn" />
+              <label for="q2-choice3" id="q2-choice3-answer">Choice 3</label>
             </div>
           </div>
         </div>
@@ -118,31 +118,5 @@
 
     </footer>
   </body>
-  <script type="text/javascript" charset="utf-8">
-  let i = true;
-  function showBtns() {
-    let status = i === true ? document.querySelector(".header-buttons").classList.add("show") : document.querySelector(".header-buttons").classList.remove("show");
-    i = !i;
-  }
-  let answers = [
-    { correct: "B", answer: null },
-    { correct: "A", answer: null },
-    { correct: "C", answer: null }
-  ]
-  class functions {
-    takeExam() {
-      if (!document.getElementById("name-input").value) { return; }
-      document.querySelector(".questions-container").style.display ="grid";
-    }
-    validate(btn, answer) {
-      if (!answers.answer) {
-        answers.answer = answer;
-        return;
-      }
-      alert('answered already.');
-      this.checked = false;
-    }
-  }
-  const func = new functions();
-  </script>
+  <script type="text/javascript" charset="utf-8" href="js/index.js"></script>
 </html>
