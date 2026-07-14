@@ -71,7 +71,11 @@ class Functions {
                 this.generateQuestion();
             } else {
                 alert("Exam completed!");
-                // Optionally, you can reset the exam or redirect the user
+                finish.style.display = "block";
+           document.querySelector(".questions-container").style.display = "none";
+           document.getElementById("submit-btn").style.display = "none";
+takeBtn.style.display="none";
+
             }
         } else {
             alert("Please select an answer before submitting.");
@@ -80,12 +84,6 @@ class Functions {
     submitExam() {
      if (index < questions.length) {
         this.validateAnswer();
-     } else {
-        if (scores => 10) {
-           finish.style.display = "block";
-           document.querySelector(".questions-container").style.display = "none";
-           document.getElementById("submit-btn").style.display = "none";
-        }
      }
     }
 }
