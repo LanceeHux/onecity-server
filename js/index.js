@@ -83,9 +83,9 @@ class Functions {
     }
     checkAnswers() {
         if(scores <= 9) {
-           alert(`You didn't pass the exam, kindly review the server rules.`); 
+           alert(`You didn't pass the exam, kindly review the server rules. You got ${scores}/15`); 
         } else {
-           alert("You passed the test!");
+           alert(`You passed the test! ${scores}/15`);
            finish.style.display="block";
            takeBtn.style.display="none";
            document.querySelector(".questions-container").style.display ="none";
