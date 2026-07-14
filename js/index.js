@@ -44,6 +44,7 @@ class Functions {
         questionsContainer.style.display = "flex";
         questionsContainer.style.flexDirection = "column";
         this.generateQuestion();
+        document.getElementById("submit-btn").style.display="block";
     }
     generateQuestion() {
         question.innerText = questions[index].question;
