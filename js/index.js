@@ -85,9 +85,7 @@ takeBtn.style.display="none";
         }
     }
     submitExam() {
-     if (index < questions.length) {
         this.validateAnswer();
-     }
     }
 }
 const func = new Functions();
