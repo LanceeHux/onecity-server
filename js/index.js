@@ -1,6 +1,7 @@
 // variables
 let i = true;
 let index = 0;
+let scores =0;
 const submitBtn = document.getElementById("submit-btn");
 const nameInput = document.getElementById("name-input");
 const finish = document.getElementById("ip-container");
@@ -61,6 +62,7 @@ class Functions {
             if (userAnswer === correctAnswer) {
                 alert("Correct answer!");
                 this.#score++;
+                scores++;
             } else {
                 alert("Incorrect answer. The correct answer is: " + correctAnswer);
             }
@@ -79,9 +81,9 @@ class Functions {
      if (index < questions.length) {
         this.validateAnswer();
      } else {
-        if (this.#score => 10) {
+        if (scores => 10) {
            finish.style.display = "block";
-           document.querySelector("questions-container").style.display = "none";
+           document.querySelector(".questions-container").style.display = "none";
            document.getElementById("submit-btn").style.display = "none";
         }
      }
