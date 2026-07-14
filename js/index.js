@@ -3,7 +3,6 @@ let i = true;
 let index = 0;
 const submitBtn = document.getElementById("submit-btn");
 const nameInput = document.getElementById("name-input");
-const finish = document.getElementById("ip-container");
 // questions variables
 const question = document.getElementById("question");
 const choice1Btn = document.getElementById("choice1-btn");
@@ -72,11 +71,7 @@ class Functions {
         }
     }
     submitExam() {
-        if (index < questions.length) {
-        this.validateAnswer();
-        } else {
-            finish.style.display = "block";
-        }
+      this.validateAnswer();
     }
 }
 const func = new Functions();
