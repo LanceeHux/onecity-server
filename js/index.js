@@ -82,7 +82,7 @@ class Functions {
         if (this.#score => 10) {
            finish.style.display = "block";
            document.querySelector("questions-container").style.display = "none";
-           document.querySelector("button[onclick='func.submitExam()']).style.display = "none";
+           document.getElementById("submit-btn").style.display = "none";
         }
      }
     }
