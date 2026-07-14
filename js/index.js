@@ -72,13 +72,7 @@ class Functions {
             if (index < questions.length) {
                 this.generateQuestion();
             } else {
-               if(scores => 10) {
-                alert("Exam completed!");
-                finish.style.display = "block";
-           document.querySelector(".questions-container").style.display = "none";
-           document.getElementById("submit-btn").style.display = "none";
-takeBtn.style.display="none";
-} else if (scores <= 9) { alert("You didn't pass the test! Review the Server Rules."); }
+                this.checkAnswers();
             }
         } else {
             alert("Please select an answer before submitting.");
@@ -86,6 +80,17 @@ takeBtn.style.display="none";
     }
     submitExam() {
         this.validateAnswer();
+    }
+    checkAnswers() {
+        if(scores <= 9) {
+           alert(`You didn't pass the exam, kindly review the server rules.`); 
+        } else {
+           alert("You passed the test!");
+           finish.style.display="block";
+           takeBtn.style.display="none";
+           document.querySelector(".questions-container").style.display ="none";
+document.getElementById("submit-btn").style.display="none";
+        }
     }
 }
 const func = new Functions();
