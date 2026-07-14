@@ -2,6 +2,7 @@
 let i = true;
 let index = 0;
 let scores =0;
+const takeBtn = document.getElementById("takeBtn");
 const submitBtn = document.getElementById("submit-btn");
 const nameInput = document.getElementById("name-input");
 const finish = document.getElementById("ip-container");
