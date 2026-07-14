@@ -55,7 +55,7 @@ class Functions {
             const correctAnswer = questions[index].correctAnswer;
             if (userAnswer === correctAnswer) {
                 alert("Correct answer!");
-                #score++;
+                this.#score++;
             } else {
                 alert("Incorrect answer. The correct answer is: " + correctAnswer);
             }
@@ -71,7 +71,11 @@ class Functions {
         }
     }
     submitExam() {
-      this.validateAnswer();
+     if (index < questions.length) {
+        this.validateAnswer();
+     } else {
+        finish.style.display="block";
+     }
     }
 }
 const func = new Functions();
