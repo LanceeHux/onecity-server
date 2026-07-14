@@ -71,12 +71,13 @@ class Functions {
             if (index < questions.length) {
                 this.generateQuestion();
             } else {
+               if(scores => 10) {
                 alert("Exam completed!");
                 finish.style.display = "block";
            document.querySelector(".questions-container").style.display = "none";
            document.getElementById("submit-btn").style.display = "none";
 takeBtn.style.display="none";
-
+} else if (scores <= 9) { alert("You didn't pass the test! Review the Server Rules."); }
             }
         } else {
             alert("Please select an answer before submitting.");
