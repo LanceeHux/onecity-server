@@ -48,6 +48,10 @@ class Functions {
         choice1Label.innerText = questions[index].choices[0];
         choice2Label.innerText = questions[index].choices[1];
         choice3Label.innerText = questions[index].choices[2];
+
+        choice1Btn.value = questions[index].choices[0];
+        choice2Btn.value = questions[index].choices[1];
+        choice3Btn.value = questions[index].choices[2];
     }
     validateAnswer() {
         const selectedChoice = document.querySelector('input[name="choice1"]:checked');
@@ -75,7 +79,11 @@ class Functions {
      if (index < questions.length) {
         this.validateAnswer();
      } else {
-        finish.style.display="block";
+        if (this.#score => 10) {
+           finish.style.display = "block";
+           document.querySelector("questions-container").style.display = "none";
+           document.querySelector("button[onclick="func.submitExam()"].style.display = "none";
+        }
      }
     }
 }
