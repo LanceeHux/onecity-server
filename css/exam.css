@@ -320,17 +320,35 @@ li a:hover::before {
 }
 
 /* exam question container */
+/* ===== EXAM CONTAINER — UPGRADED ===== */
+
 .exam-container {
   width: min(900px, calc(100% - 32px));
   margin: 24px auto 0;
-  padding: 24px;
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  padding: 32px;
+  border-radius: 28px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   color: white;
+  overflow: hidden;
+}
+
+/* subtle top accent glow */
+.exam-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffcd00, transparent);
+  opacity: 0.8;
 }
 
 .initial-container {
@@ -340,45 +358,77 @@ li a:hover::before {
 }
 
 .initial-container button {
-  padding: 12px 22px;
+  padding: 14px 32px;
   border: none;
   border-radius: 999px;
   background: linear-gradient(135deg, #ffcd00, #ffb700);
   color: #111;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 12px 28px rgba(255, 183, 0, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .initial-container button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  transform: translateY(-3px) scale(1.02);
+  filter: brightness(1.08);
+  box-shadow: 0 18px 36px rgba(255, 183, 0, 0.45);
 }
 
+.initial-container button:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* question / special-question cards */
 .special-question,
 .question {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: examFadeIn 0.35s ease both;
+}
 
-  
+@keyframes examFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .special-question {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .special-question label,
 .question h3 {
-  display: block;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
   color: #ffcd00;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* numbered badge for question titles */
+.question h3::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 205, 0, 0.15);
+  border: 1px solid rgba(255, 205, 0, 0.5);
+  flex-shrink: 0;
 }
 
 .special-question input[type="text"] {
@@ -386,25 +436,27 @@ li a:hover::before {
   padding: 14px 16px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(0, 0, 0, 0.22);
+  background: rgba(0, 0, 0, 0.25);
   color: white;
+  font-size: 0.98rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .special-question input[type="text"]::placeholder {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .special-question input[type="text"]:focus {
-  border-color: rgba(255, 205, 0, 0.8);
-  box-shadow: 0 0 0 3px rgba(255, 205, 0, 0.18);
-  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 205, 0, 0.85);
+  box-shadow: 0 0 0 4px rgba(255, 205, 0, 0.16);
+  background: rgba(0, 0, 0, 0.32);
 }
 
 .questions-container {
   display: none;
-  gap: 16px;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .question {
@@ -412,9 +464,9 @@ li a:hover::before {
 }
 
 .question:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+  border-color: rgba(255, 205, 0, 0.35);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
 }
 
 .choices {
@@ -423,103 +475,172 @@ li a:hover::before {
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* checkbox styling */
+/* shared styling for radio + checkbox options */
 .choices label {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
+
 .choices label:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
-  transform: translateY(-1px);
+  background: rgba(255, 205, 0, 0.08);
+  border-color: rgba(255, 205, 0, 0.35);
+  transform: translateX(4px);
 }
+
+/* checkbox styling */
 .choices input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
-  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: 6px;
   border: 2px solid rgba(255, 255, 255, 0.7);
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.2);
   display: inline-grid;
   place-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
   margin: 0;
 }
+
+/* radio styling (used in the actual markup) */
+.choices input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.2);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0;
+}
+
+.choices input[type="radio"]::before,
 .choices input[type="checkbox"]::before {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   transform: scale(0);
   transition: transform 0.15s ease-in-out;
   background: #111;
-  border-radius: 2px;
+  border-radius: inherit;
 }
-.choices input[type="checkbox"]:checked {
+
+.choices input[type="checkbox"]:checked,
+.choices input[type="radio"]:checked {
   background: #ffcd00;
   border-color: #ffcd00;
+  box-shadow: 0 0 0 4px rgba(255, 205, 0, 0.18);
 }
-.choices input[type="checkbox"]:checked::before {
+
+.choices input[type="checkbox"]:checked::before,
+.choices input[type="radio"]:checked::before {
   transform: scale(1);
 }
-.choices input[type="checkbox"]:focus-visible {
+
+.choices input[type="checkbox"]:focus-visible,
+.choices input[type="radio"]:focus-visible {
   outline: 3px solid rgba(255, 205, 0, 0.35);
   outline-offset: 2px;
 }
+
+/* highlight the label text when its input is checked */
+.choices label:has(input:checked) {
+  background: rgba(255, 205, 0, 0.12);
+  border-color: rgba(255, 205, 0, 0.55);
+}
+
 .choices .choice-text {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.95);
 }
 
+/* ---- IP result panel ---- */
+.ip-container {
+  text-align: center;
+  padding: 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 205, 0, 0.14), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 205, 0, 0.35);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.25);
+  animation: examFadeIn 0.4s ease both;
+}
+
+.ip-container h1 {
+  color: #ffcd00;
+  margin-bottom: 10px;
+}
+
+.ip-container #ip-address {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1.5px !important;
+  padding: 8px 14px !important;
+  border: 1px solid rgba(255, 205, 0, 0.4);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.ip-container #ip-address:hover {
+  background: rgba(255, 205, 0, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+/* ---- submit button ---- */
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.submit-container button {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffcd00, #ffb700);
+  color: #111;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(255, 183, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.submit-container button:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: brightness(1.08);
+  box-shadow: 0 18px 36px rgba(255, 183, 0, 0.45);
+}
+
+.submit-container button:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
 @media (max-width: 768px) {
-  .header-buttons {
-    position: absolute;
-    background: gray;
-    display: none;
-    flex-direction: column;
-    top: 60px;
-    right: 10px;
-    border-radius: 0 0 20%;
-    border: 1px solid #fff;
-    border-top: none;
-  }
-  .header-buttons.show {
-    display: flex;
-  }
-  .header-nav {
-    display: block;
-    font-size: 200%;
-    padding: 10px;
-  }
-  .thumbnail {
-    margin-top: 20px;
-    width: 100%;
-    overflow: hidden;
-  }
-  .thumbnail img {
-    object-fit: cover;
-    width: 100%;
-    height: auto;
-  }
-  .admin-list,
-  .moderator-list {
-    justify-content: center;
-  }
-  .container h1[titeNiJulian="title"] {
-    font-size: 10px;
-  }
   .exam-container {
     width: calc(100% - 20px);
-    padding: 18px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .special-question,
+  .question {
+    padding: 16px;
   }
 }
 
