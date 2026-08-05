@@ -1,186 +1,306 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://onecityrp.vercel.app/">
-    <meta property="og:title" content="One City ">
-    <meta property="og:description" content="One City Serious Roleplay - Introduction, About The Community, Personnel, and Entrance Exam">
-    <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg"> <!-- Recommended size: 1200x630 -->
-    <meta property="og:site_name" content="One City Serious Roleplay">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/about.css" title="" type="" />
-    <link rel="icon" type="image/x-icon" href="images/thumbnail.jpg">
-  </head>
-  <body>
-    <video class="video-bg" autoplay muted loop playsinline>
-      <!-- https://trecemulti.vercel.app/images/bg-home.mp4 -->
-      <source src="image/flame.mp4" type="video/mp4">
-    </video>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One City SRP - About Us</title>
 
-    <header>
-      <div class="temp">
-        <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="" />
-        <p>One City</p>
-      </div>
-      <div class="header-nav" onclick="showBtns()">=</div>
-      <div class="header-buttons">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="exam.html">exam</a>
-      </div>
-    </header>
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://onecityrp.vercel.app/" />
+  <meta property="og:title" content="One City Roleplay - About Us" />
+  <meta property="og:description" content="One City Serious Roleplay - Introduction, About The Community, Personnel, and Entrance Exam" />
+  <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg" />
+  <meta property="og:site_name" content="One City Serious Roleplay" />
 
-    <div class="container">
-        <h1 titeNiJulian="title">ABOUT</h1>
-        <div class="info">
-          <h1>About Us </h1>
-            <p>One City is a serious roleplay community built for players who want a realistic, immersive, and respectful city experience. Our goal is to create a premium RP environment where every member can enjoy meaningful interactions, fair gameplay, and a strong sense of community.</p>
-        </div>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/thumbnail.jpg" />
+  <link rel="stylesheet" href="css/about.css" />
+</head>
+<body>
+
+  <!-- Background Video Overlay -->
+  <div class="video-overlay"></div>
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="image/flame.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="brand">
+      <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="One City Logo" class="brand-logo" />
+      <span class="brand-title">One City</span>
     </div>
 
-      <div class="profiles">
-        <div class="admins">
-          <h1>Community Administrator</h1>
-          <div class="admin-list">
-            <div class="admin">
-              <img src="image/profiles/julian.jpg" alt="" />
-              <div class="dark-overlay"></div>
-              <div class="user-info">
-                <h3 style="color: red">Lianuj</h3>
-                <span>Admin Level 8</span>
-              </div>
-              <code class="first">Server Owner</code>
-              <code class="second">Faction Moderator</code>
-            </div>
-            <div class="admin">
-              <img src="https://lynxlab.vercel.app/images/profile.jpg" alt="" />
-              <div class="dark-overlay"></div>
-              <div class="user-info">
-                <h3 style="color: #ffcd00">Kira</h3>
-                <span>Admin Level 7</span>
-              </div>
-              <code class="first">Developers Division</code>
-              <code class="second">Website Developer</code>
-            </div>
-             <div class="admin">
-              <img src="image/profiles/YANNIE.jpg" alt="" />
-              <div class="dark-overlay"></div>
-              <div class="user-info">
-                <h3 style="color: pink">YANNIE</h3>
-                <span>Admin Level 7</span>
-              </div>
-            </div>
-             <div class="admin">
-              <img src="image/profiles/SanPedro.jpg" alt="" />
-              <div class="dark-overlay"></div>
-              <div class="user-info">
-                <h3>SanPedro</h3>
-                <span>Admin Level 7</span>
-              </div>
-            </div>
-            <div class="admin">
-              <img src="image/profiles/CHINO.jpg" alt="" />
-              <div class="dark-overlay"></div>
-              <div class="user-info">
-                <h3 style="color: red">DEMONYO</h3>
-                <span>Admin Level 8</span>
-              </div>
-              <code class="first">Media/Event Division</code>
-            </div>
-            <div class="admin">
-              <img src="image/profiles/MARVS.jpg" alt="" />
-              <div class="dark-overlay"></div>
-              <div class="user-info">
-                <h3 style="color: yellow">MARVS</h3>
-                <span>Admin Level 8</span>
-              </div>
-              <code class="first">Server Owner</code>
-            </div>
-          </div>
-        </div>
-        <div class="helpers">
-          <h1>Community Moderators</h1>
-          <div class="moderator-list"> 
-            <div class="admin">
-              <img src="https://scontent.fmnl36-1.fna.fbcdn.net/v/t39.30808-1/699533340_2070607193868256_8706071665389819952_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s480x480&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeE9EtTs2Bhf3S289QgJl37-myI6iKsHEDSbIjqIqwcQNP_fOOfQlOx7R2KwCyx_gOkeBIF4IcTDi8NS8nv4Jaul&_nc_ohc=y3XV526dQ4QQ7kNvwGFUcuG&_nc_oc=Ado6nBqDTsUF36pqiGqzMz2ZGKPwMkX-EigKeT800CsSiTFMmxH-uMFLwIshtZlDHjXaQFadlm_IKy3uThe9tsPZ&_nc_zt=24&_nc_ht=scontent.fmnl36-1.fna&_nc_gid=Sb3NXcgQQcxb-Yi73_cq4w&_nc_ss=7b2a8&oh=00_AQCJX40cGNn-xJLVTGlBdK48WpGLgI9MhGw0g4kvzhBkmA&oe=6A5185D9" alt="" />
-              <div class="dark-overlay"> </div>
-              <div class="user-info">
-                <h3>Helper 1</h3>
-                <span>Junior Helper</span>
-              </div>
-              <code>Head</code>
-            </div>
-            <div class="admin">
-              <img src="https://scontent.fmnl36-1.fna.fbcdn.net/v/t39.30808-1/699533340_2070607193868256_8706071665389819952_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s480x480&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeE9EtTs2Bhf3S289QgJl37-myI6iKsHEDSbIjqIqwcQNP_fOOfQlOx7R2KwCyx_gOkeBIF4IcTDi8NS8nv4Jaul&_nc_ohc=y3XV526dQ4QQ7kNvwGFUcuG&_nc_oc=Ado6nBqDTsUF36pqiGqzMz2ZGKPwMkX-EigKeT800CsSiTFMmxH-uMFLwIshtZlDHjXaQFadlm_IKy3uThe9tsPZ&_nc_zt=24&_nc_ht=scontent.fmnl36-1.fna&_nc_gid=Sb3NXcgQQcxb-Yi73_cq4w&_nc_ss=7b2a8&oh=00_AQCJX40cGNn-xJLVTGlBdK48WpGLgI9MhGw0g4kvzhBkmA&oe=6A5185D9" alt="" />
-              <div class="dark-overlay"> </div>
-              <div class="user-info">
-                <h3>Helper 1</h3>
-                <span>Junior Helper</span>
-              </div>
-              <code>Head</code>
-            </div>
-            <div class="admin">
-              <img src="https://scontent.fmnl36-1.fna.fbcdn.net/v/t39.30808-1/699533340_2070607193868256_8706071665389819952_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s480x480&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeE9EtTs2Bhf3S289QgJl37-myI6iKsHEDSbIjqIqwcQNP_fOOfQlOx7R2KwCyx_gOkeBIF4IcTDi8NS8nv4Jaul&_nc_ohc=y3XV526dQ4QQ7kNvwGFUcuG&_nc_oc=Ado6nBqDTsUF36pqiGqzMz2ZGKPwMkX-EigKeT800CsSiTFMmxH-uMFLwIshtZlDHjXaQFadlm_IKy3uThe9tsPZ&_nc_zt=24&_nc_ht=scontent.fmnl36-1.fna&_nc_gid=Sb3NXcgQQcxb-Yi73_cq4w&_nc_ss=7b2a8&oh=00_AQCJX40cGNn-xJLVTGlBdK48WpGLgI9MhGw0g4kvzhBkmA&oe=6A5185D9" alt="" />
-              <div class="dark-overlay"> </div>
-              <div class="user-info">
-                <h3>Helper 1</h3>
-                <span>Junior Helper</span>
-              </div>
-              <code>Head</code>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="footer-twotier" role="contentinfo">
-        
-        <!-- Top Tier: Main navigation and information -->
-        <div class="footer-twotier__top">
-            <div class="footer-twotier__top-container">
-                <div class="footer-twotier__brand">
-                     <svg class="logo" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitleTiered">
-                        <title id="logoTitleTiered">Logo</title>
-                        <text x="0" y="25" font-family="Arial, sans-serif" font-size="25" font-weight="bold">One City</text>
-                     </svg>
-                     <p>A reborn city that awaken from the pandemic--seeks peaceful and kindness towards each citizen.</p>
-                </div>
-                <div class="footer-twotier__links">
-                    <h3 class="footer-twotier__heading">Quick Links</h3>
-                    <ul>
-                        <li><a href="about">About Us</a></li>
-                        <li><a href="exam">Exam</a></li>
-                        <li><a href="#" onclick='alert("Under Development")'>Player Online UI</a></li>
-                    </ul>
-                </div>
-                 <div class="footer-twotier__links">
-                    <h3 class="footer-twotier__heading">Connect With Us</h3>
-                    <ul>
-                        <li><a onclick="alert('Under Development');" style="background: blue;">Facebook</a></li>
-                        <li><a href="https://discord.gg/qfGhbqQwU3" style="background: #5865F2">Discord</a></li>
-                        <li> <a onclick="alert('Under Development')" style="background: red">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Bottom Tier: Copyright and social links -->
-        <div class="footer-twotier__bottom">
-            <div class="footer-twotier__bottom-container">
-                <p class="footer-twotier__copyright">
-                    &copy; 2026 One City Roleplay, Inc. All rights reserved.
-                </p>
-                <nav class="footer-twotier__social" aria-label="Social Media">
-                </nav>
-            </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="exam.html" class="nav-link">Exam</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    
+    <!-- Hero Header -->
+    <section class="hero-section">
+      <span class="badge">Community Overview</span>
+      <h1 class="hero-title">ABOUT US</h1>
+      <p class="hero-desc">
+        One City is a serious roleplay community built for players who want a realistic, 
+        immersive, and respectful city experience. Our goal is to create a premium RP environment 
+        where every member can enjoy meaningful interactions, fair gameplay, and a strong sense of belonging.
+      </p>
+    </section>
+
+    <!-- Community Personnel Sections -->
+    <section class="profiles-section">
+      
+      <!-- Administrators -->
+      <div class="group-container">
+        <div class="group-header">
+          <h2>Community Administrators</h2>
+          <p>Overseeing city operations, moderation, and technical development.</p>
         </div>
 
-    </footer>
-  </body>
-  <script type="text/javascript" charset="utf-8">
-  let i = true;
-  function showBtns() {
-    let status = i === true ? document.querySelector(".header-buttons").classList.add("show") : document.querySelector(".header-buttons").classList.remove("show");
-    i = !i;
-  }
+        <div class="team-grid">
+          
+          <!-- Admin 1 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="image/profiles/julian.jpg" alt="Lianuj Profile" class="avatar-img" />
+              <span class="level-badge level-red">Level 8</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name text-red">Lianuj</h3>
+              <span class="user-rank">Community Admin</span>
+              <div class="tags-container">
+                <span class="role-tag">Server Owner</span>
+                <span class="role-tag">Faction Moderator</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin 2 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="https://lynxlab.vercel.app/images/profile.jpg" alt="Kira Profile" class="avatar-img" />
+              <span class="level-badge level-yellow">Level 7</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name text-yellow">Kira</h3>
+              <span class="user-rank">Community Admin</span>
+              <div class="tags-container">
+                <span class="role-tag">Developers Division</span>
+                <span class="role-tag">Website Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin 3 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="lorem ipsum" alt="Aye Profile" class="avatar-img" />
+              <span class="level-badge level-yellow">Level 8</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name text-yellow">Aye</h3>
+              <span class="user-rank">Community Admin</span>
+              <div class="tags-container">
+                <span class="role-tag">Developers Division</span>
+                <span class="role-tag">Server Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin 3 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="image/profiles/YANNIE.jpg" alt="YANNIE Profile" class="avatar-img" />
+              <span class="level-badge level-pink">Level 7</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name text-pink">YANNIE</h3>
+              <span class="user-rank">Community Admin</span>
+            </div>
+          </div>
+
+          <!-- Admin 4 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="image/profiles/SanPedro.jpg" alt="SanPedro Profile" class="avatar-img" />
+              <span class="level-badge level-blue">Level 7</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name">SanPedro</h3>
+              <span class="user-rank">Community Admin</span>
+            </div>
+          </div>
+
+          <!-- Admin 5 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="image/profiles/CHINO.jpg" alt="DEMONYO Profile" class="avatar-img" />
+              <span class="level-badge level-red">Level 8</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name text-red">DEMONYO</h3>
+              <span class="user-rank">Community Admin</span>
+              <div class="tags-container">
+                <span class="role-tag">Media/Event Division</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin 6 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="image/profiles/MARVS.jpg" alt="MARVS Profile" class="avatar-img" />
+              <span class="level-badge level-red">Level 8</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name text-yellow">MARVS</h3>
+              <span class="user-rank">Community Admin</span>
+              <div class="tags-container">
+                <span class="role-tag">Server Owner</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Moderators & Helpers -->
+      <div class="group-container">
+        <div class="group-header">
+          <h2>Community Moderators</h2>
+          <p>Assisting players in-game and maintaining server harmony.</p>
+        </div>
+
+        <div class="team-grid">
+          
+          <!-- Helper 1 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="" alt="Helper Avatar" class="avatar-img" />
+              <span class="level-badge level-green">Helper</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name">Helper 1</h3>
+              <span class="user-rank">Junior Helper</span>
+              <div class="tags-container">
+                <span class="role-tag">Head Moderator</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Helper 2 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="" alt="Helper Avatar" class="avatar-img" />
+              <span class="level-badge level-green">Helper</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name">Helper 2</h3>
+              <span class="user-rank">Junior Helper</span>
+              <div class="tags-container">
+                <span class="role-tag">Head Moderator</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Helper 3 -->
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="" alt="Helper Avatar" class="avatar-img" />
+              <span class="level-badge level-green">Helper</span>
+            </div>
+            <div class="profile-details">
+              <h3 class="user-name">Helper 3</h3>
+              <span class="user-rank">Junior Helper</span>
+              <div class="tags-container">
+                <span class="role-tag">Head Moderator</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Modern Two-Tier Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        
+        <div class="footer-brand">
+          <div class="brand">
+            <span class="brand-title">One City</span>
+          </div>
+          <p>A reborn city that awakened from the pandemic—seeking peace and kindness toward each citizen.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="exam.html">Exam</a></li>
+            <li><a href="#" class="dev-link" role="button" aria-disabled="true">Player Online UI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-socials">
+          <h4>Connect With Us</h4>
+          <div class="social-buttons">
+            <a href="#" class="social-btn dev-link facebook">Facebook</a>
+            <a href="https://discord.gg/qfGhbqQwU3" target="_blank" rel="noopener noreferrer" class="social-btn discord">Discord</a>
+            <a href="#" class="social-btn dev-link youtube">YouTube</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-container">
+        <p>&copy; 2026 One City Roleplay, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Inline Script for Interactive Handlers -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Navigation Toggle
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+      }
+
+      // Feature Development Prompt
+      document.querySelectorAll('.dev-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('This feature is currently under development.');
+        });
+      });
+    });
   </script>
+</body>
 </html>

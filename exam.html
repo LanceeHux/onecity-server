@@ -1,112 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://onecityrp.vercel.app/">
-    <meta property="og:title" content="One City ">
-    <meta property="og:description" content="One City Serious Roleplay - Introduction, About The Community, Personnel, and Entrance Exam">
-    <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg"> <!-- Recommended size: 1200x630 -->
-    <meta property="og:site_name" content="One City Serious Roleplay">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/exam.css" title="" type="" />
-    <link rel="icon" type="image/x-icon" href="images/thumbnail.jpg">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One City SRP - Exam</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://onecityrp.vercel.app/" />
+    <meta property="og:title" content="One City Roleplay - Exam" />
+    <meta property="og:description" content="One City Serious Roleplay - Entrance exam and server access." />
+    <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg" />
+    <meta property="og:site_name" content="One City Serious Roleplay" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="images/thumbnail.jpg" />
+    <link rel="stylesheet" href="css/exam.css" />
   </head>
   <body>
+
+    <div class="video-overlay"></div>
     <video class="video-bg" autoplay muted loop playsinline>
-      <!-- https://trecemulti.vercel.app/images/bg-home.mp4 -->
-      <source src="image/flame.mp4" type="video/mp4">
+      <source src="image/flame.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
     </video>
 
-    <header>
-      <div class="temp">
-        <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="" />
-        <p>One City</p>
+    <header class="navbar">
+      <div class="brand">
+        <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="One City Logo" class="brand-logo" />
+        <span class="brand-title">One City</span>
       </div>
-      <div class="header-nav" onclick="func.showBtns()">=</div>
-      <div class="header-buttons">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="exam.html">exam</a>
-      </div>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="exam.html" class="nav-link active">Exam</a>
+      </nav>
     </header>
 
-    <div class="container">
-        <h1 titeNiJulian="title">EXAM</h1>
-        <div class="info">
-          <h1>Get Your Pass! </h1>
-            <p>To enter One City, complete the exam honestly and follow the instructions carefully. This helps us keep the community fair, immersive, and respectful for every player. Once you pass, you’ll receive access to the city and can begin your journey in a premium roleplay experience.</p>
-        </div>
-    </div>
+    <main class="main-wrapper">
+      <section class="hero-section">
+        <span class="badge">Entrance Exam</span>
+        <h1 class="hero-title">Pass the Exam to Join One City</h1>
+        <p class="hero-desc">
+          Complete this brief exam honestly and carefully to receive access to the server IP address. Once you pass, the city is ready for your story.
+        </p>
+      </section>
 
-      <div class="exam-container">
-        <div class="initial-container">
-          <button id="takeBtn" type="submit" onclick="func.takeExam()">Take Exam</button>
-        </div>
-        <div class="questions-container" id="questions-container">
-          <div class="question">
-            <h3 id="question">Question 1</h3>
-            <div class="choices">
-              <input type="radio" name="choice1" id="choice1-btn" value="Choice 1">
-              <label id="choice1-label" for="choice1-btn">Choice 1</label>
-              <input type="radio" name="choice1" id="choice2-btn" value="Choice 2">
-              <label id="choice2-label" for="choice2-btn">Choice 2</label>
-              <input type="radio" name="choice1" id="choice3-btn" value="Choice 3">
-              <label id="choice3-label" for="choice3-btn">Choice 3</label>
+      <section class="exam-section">
+        <div class="exam-card">
+          <div class="exam-header">
+            <h2>One City Admission Test</h2>
+            <p>Answer roleplay rules questions to prove you understand the server standards.</p>
+          </div>
+
+          <div class="exam-body">
+            <div class="exam-panel">
+              <button id="takeBtn" type="button" class="primary-btn" onclick="func.takeExam()">Start Exam</button>
+              <p class="exam-tip">Once the exam begins, choose the best answer and submit each question sequentially.</p>
+            </div>
+
+            <div class="questions-container" id="questions-container">
+              <div class="question-card">
+                <h3 id="question">Question 1</h3>
+                <div class="choices">
+                  <label class="choice-label">
+                    <input type="radio" name="choice1" id="choice1-btn" value="Choice 1" />
+                    <span id="choice1-label">Choice 1</span>
+                  </label>
+                  <label class="choice-label">
+                    <input type="radio" name="choice1" id="choice2-btn" value="Choice 2" />
+                    <span id="choice2-label">Choice 2</span>
+                  </label>
+                  <label class="choice-label">
+                    <input type="radio" name="choice1" id="choice3-btn" value="Choice 3" />
+                    <span id="choice3-label">Choice 3</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button id="submit-btn" type="button" class="secondary-btn">Submit Answer</button>
+              </div>
+            </div>
+
+            <div class="ip-container" id="ip-container">
+              <h2>Congratulations!</h2>
+              <p>You passed the exam. Copy the server IP below and connect to One City SRP.</p>
+              <div class="ip-badge"><code id="ip-address">51.79.249.13:7796</code></div>
             </div>
           </div>
-      </div>
-      <div class="ip-container" style="display: none;" id="ip-container">
-        <h1>Congratulations!</h1>
-        <p>You've completed the exam! Please copy the IP address below and use it to connect to One City SRP. We look forward to seeing you in the city and hope you enjoy your roleplay experience!</p>
-        <p>One City SRP IP Address: <code id="ip-address" style="letter-spacing: 1px; padding: 4px; border-radius: 4px; background: rgba(151, 151, 151, 0.323)">51.79.249.13:7796</code></p>
-      </div>
-      <div class="submit-container">
-        <button style="display:none" type="submit" onclick="func.submitExam()"  id="submit-btn">Submit Exam</button>
-      </div>
-    </div>
-    <footer class="footer-twotier" role="contentinfo">
-        
-        <!-- Top Tier: Main navigation and information -->
-        <div class="footer-twotier__top">
-            <div class="footer-twotier__top-container">
-                <div class="footer-twotier__brand">
-                     <svg class="logo" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitleTiered">
-                        <title id="logoTitleTiered">Logo</title>
-                        <text x="0" y="25" font-family="Arial, sans-serif" font-size="25" font-weight="bold">One City</text>
-                     </svg>
-                     <p>A reborn city that awaken from the pandemic--seeks peaceful and kindness towards each citizen.</p>
-                </div>
-                <div class="footer-twotier__links">
-                    <h3 class="footer-twotier__heading">Quick Links</h3>
-                    <ul>
-                        <li><a href="about">About Us</a></li>
-                        <li><a href="exam">Exam</a></li>
-                        <li><a href="#" onclick='alert("Under Development")'>Player Online UI</a></li>
-                    </ul>
-                </div>
-                 <div class="footer-twotier__links">
-                    <h3 class="footer-twotier__heading">Connect With Us</h3>
-                    <ul>
-                        <li><a onclick="alert('Under Development');" style="background: blue;">Facebook</a></li>
-                        <li><a href="https://discord.gg/qfGhbqQwU3" style="background: #5865F2">Discord</a></li>
-                        <li> <a onclick="alert('Under Development')" style="background: red">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
-        
-        <!-- Bottom Tier: Copyright and social links -->
-        <div class="footer-twotier__bottom">
-            <div class="footer-twotier__bottom-container">
-                <p class="footer-twotier__copyright">
-                    &copy; 2026 One City Roleplay, Inc. All rights reserved.
-                </p>
-                <nav class="footer-twotier__social" aria-label="Social Media">
-                </nav>
-            </div>
-        </div>
+      </section>
+    </main>
 
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-title">One City</span>
+            </div>
+            <p>A reborn city that awakened from the pandemic—seeking peace and kindness toward each citizen.</p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="exam.html">Exam</a></li>
+              <li><a href="#" class="dev-link" role="button" aria-disabled="true">Player Online UI</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-socials">
+            <h4>Connect With Us</h4>
+            <div class="social-buttons">
+              <a href="#" class="social-btn dev-link facebook">Facebook</a>
+              <a href="https://discord.gg/qfGhbqQwU3" target="_blank" rel="noopener noreferrer" class="social-btn discord">Discord</a>
+              <a href="#" class="social-btn dev-link youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <p>&copy; 2026 One City Roleplay, Inc. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
+
+    <script src="js/index.js"></script>
   </body>
-  <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
 </html>
