@@ -1,0 +1,13 @@
+{
+    "DB_CONFIG": {
+    "host": "vdb.rycellhost.net",
+    "user": "u205_MWmUpil9Xr",
+    "password": "Xhjx1yD.CpqzFynNxiKZMMm!",
+    "database": "s205_onecity",
+    "port": 3306,
+    "connectTimeout": 10000,
+    "charset": "utf8mb4",
+    "enableKeepAlive": true
+  }
+    
+}
