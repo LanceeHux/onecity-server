@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One City SRP - Admin Control Panel</title>
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://onecityrp.vercel.app/admin-panel.html" />
+    <meta property="og:title" content="One City Roleplay - Admin Control Panel" />
+    <meta property="og:description" content="Secure administrative control panel to configure active live events, set winner limits, and shut down events." />
+    <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg" />
+    <meta property="og:site_name" content="One City Serious Roleplay" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/thumbnail.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- Background Video Overlay -->
+    <div class="video-overlay"></div>
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="image/flame.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="brand">
+        <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="One City Logo" class="brand-logo" />
+        <span class="brand-title">One City Admin</span>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="event.html" class="nav-link">Event Arena</a>
+        <a href="admin-panel.html" class="nav-link active">Admin Portal</a>
+      </nav>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+      
+      <!-- Hero Header -->
+      <section class="hero-section">
+        <span class="badge" style="background: rgba(231, 76, 60, 0.14); color: #e74c3c; border-color: rgba(231, 76, 60, 0.28);">Restricted Access</span>
+        <h1 class="hero-title">ADMIN CONTROL PANEL</h1>
+        <p class="hero-desc">
+          Manage live community challenges, configure winner slot limits, 
+          shut down active events instantly, and track submissions via Firestore.
+        </p>
+      </section>
+
+      <!-- SECTION 1: AUTHENTICATION CONTAINER -->
+      <section id="authSection" class="profiles-section" style="max-width: 500px; margin: 0 auto; width: 100%;">
+        <div class="team-grid info-grid" style="grid-template-columns: 1fr;">
+          <div class="profile-card info-card" style="width: 100%;">
+            <div class="profile-details" style="width: 100%;">
+              <h3 class="user-name info-title">Administrator Login</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Enter your Firebase Authentication credentials to proceed.
+              </p>
+
+              <form id="loginForm" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminEmail" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Admin Email</label>
+                  <input type="email" id="adminEmail" required placeholder="admin@onecityrp.com" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminPassword" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Password</label>
+                  <input type="password" id="adminPassword" required placeholder="••••••••••••" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <button type="submit" class="role-tag" style="background: var(--primary-color); color: #111; border: none; font-weight: 700; cursor: pointer; margin-top: 0.5rem;">
+                  Authenticate Session
+                </button>
+              </form>
+
+              <div id="loginFeedback" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 12px; text-align: center; font-weight: 600; font-size: 0.95rem;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ADMIN MANAGEMENT DASHBOARD -->
+      <section id="dashboardSection" class="profiles-section" style="display: none;">
+        <div class="team-grid info-grid">
+          
+          <div class="profile-card info-card" style="width: 100%;">
+            <div class="profile-details" style="width: 100%;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <h3 class="user-name info-title" style="margin-bottom: 0;">Event Management Console</h3>
+                <button id="logoutBtn" style="background: rgba(231, 76, 60, 0.15); border: 1px solid rgba(231, 76, 60, 0.4); color: #e74c3c; padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Logout</button>
+              </div>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Configure challenge properties, choose how many players can win, or safely shut down the event at any time.
+              </p>
+
+              <!-- Main Event Configuration Form -->
+              <form id="adminEventForm" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminTitle" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Event / Challenge Title</label>
+                  <input type="text" id="adminTitle" required placeholder="e.g., Active Challenge #01" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminPrize" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Prize Pool Description</label>
+                  <input type="text" id="adminPrize" required placeholder="e.g., 50,000 In-Game Cash + Rare Item" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminWinnerLimit" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Winner Slot Limit</label>
+                  <select id="adminWinnerLimit" style="width: 100%; padding: 0.85rem 1rem; background: #121218; border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;">
+                    <option value="1">1 Winner</option>
+                    <option value="2">2 Winners</option>
+                    <option value="3">3 Winners</option>
+                    <option value="5">5 Winners</option>
+                  </select>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminDesc" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Riddle / Question Prompt</label>
+                  <textarea id="adminDesc" required rows="3" placeholder="Type the riddle users must solve..." style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none; resize: vertical;"></textarea>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="adminSecretAnswer" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Expected Correct Answer (Case-insensitive)</label>
+                  <input type="text" id="adminSecretAnswer" required placeholder="e.g., echo" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                  <button type="submit" class="role-tag" style="flex: 1; background: var(--primary-color); color: #111; border: none; font-weight: 700; cursor: pointer;">
+                    Save & Publish Event
+                  </button>
+                  <button type="button" id="shutdownBtn" class="role-tag" style="background: rgba(231, 76, 60, 0.15); border: 1px solid rgba(231, 76, 60, 0.4); color: #e74c3c; font-weight: 700; cursor: pointer;">
+                    Shut Down Event
+                  </button>
+                </div>
+              </form>
+
+              <div id="adminFeedback" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 12px; text-align: center; font-weight: 600; font-size: 0.95rem;"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Modern Two-Tier Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-container">
+          
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-title">One City</span>
+            </div>
+            <p>A reborn city that awakened from the pandemic—seeking peace and kindness toward each citizen.</p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="exam.html">Exam</a></li>
+              <li><a href="event.html">Event Arena</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-socials">
+            <h4>Connect With Us</h4>
+            <div class="social-buttons">
+              <a href="#" class="social-btn dev-link facebook">Facebook</a>
+              <a href="https://discord.gg/qfGhbqQwU3" target="_blank" rel="noopener noreferrer" class="social-btn discord">Discord</a>
+              <a href="#" class="social-btn dev-link youtube">YouTube</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <p>&copy; 2026 One City Roleplay, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK Imports & Admin Control Script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+      import { getFirestore, doc, setDoc, serverTimestamp, deleteField } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+      // Replace with your actual Firebase project configuration credentials
+      const firebaseConfig = {
+        apiKey: "AIzaSyDLCBL9piQCoz2hHN0R7TCnqL6pirdVWlg",
+        authDomain: "onecity-event.firebaseapp.com",
+        projectId: "onecity-event",
+        storageBucket: "onecity-event.firebasestorage.app",
+        messagingSenderId: "959796416400",
+        appId: "1:959796416400:web:b34fe139f938fafe4ced15"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // DOM Elements
+      const authSection = document.getElementById('authSection');
+      const dashboardSection = document.getElementById('dashboardSection');
+      const loginForm = document.getElementById('loginForm');
+      const loginFeedback = document.getElementById('loginFeedback');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const adminEventForm = document.getElementById('adminEventForm');
+      const shutdownBtn = document.getElementById('shutdownBtn');
+      const adminFeedback = document.getElementById('adminFeedback');
+
+      // Navigation Mobile Toggle
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+      }
+
+      document.querySelectorAll('.dev-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('This feature is currently under development.');
+        });
+      });
+
+      // Monitor Auth State Changes
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          authSection.style.display = 'none';
+          dashboardSection.style.display = 'block';
+        } else {
+          authSection.style.display = 'block';
+          dashboardSection.style.display = 'none';
+        }
+      });
+
+      // Admin Login Handler
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('adminEmail').value.trim();
+        const password = document.getElementById('adminPassword').value;
+
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          loginFeedback.style.display = 'none';
+        } catch (error) {
+          console.error("Login error: ", error);
+          loginFeedback.style.display = 'block';
+          loginFeedback.style.background = 'rgba(231, 76, 60, 0.15)';
+          loginFeedback.style.border = '1px solid rgba(231, 76, 60, 0.4)';
+          loginFeedback.style.color = '#e74c3c';
+          loginFeedback.textContent = 'Authentication failed. Verify email/password and make sure Email/Password provider is enabled in Firebase.';
+        }
+      });
+
+      // Admin Logout Handler
+      logoutBtn.addEventListener('click', async () => {
+        try {
+          await signOut(auth);
+        } catch (error) {
+          console.error("Logout error: ", error);
+        }
+      });
+
+      // Publish / Update Challenge Document in Firestore
+      adminEventForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const title = document.getElementById('adminTitle').value.trim();
+        const prize = document.getElementById('adminPrize').value.trim();
+        const winnerLimit = parseInt(document.getElementById('adminWinnerLimit').value, 10);
+        const description = document.getElementById('adminDesc').value.trim();
+        const secretAnswer = document.getElementById('adminSecretAnswer').value.trim().toLowerCase();
+
+        const eventDocRef = doc(db, "events", "active_challenge");
+
+        try {
+          await setDoc(eventDocRef, {
+            title,
+            prize,
+            winnerLimit,
+            description,
+            secretAnswer,
+            isActive: true,
+            updatedAt: serverTimestamp()
+          });
+
+          adminFeedback.style.display = 'block';
+          adminFeedback.style.background = 'rgba(46, 204, 113, 0.15)';
+          adminFeedback.style.border = '1px solid rgba(46, 204, 113, 0.4)';
+          adminFeedback.style.color = '#2ecc71';
+          adminFeedback.textContent = 'Event successfully published with winner limit set to ' + winnerLimit + '!';
+        } catch (err) {
+          console.error("Firestore write error: ", err);
+          adminFeedback.style.display = 'block';
+          adminFeedback.style.background = 'rgba(231, 76, 60, 0.15)';
+          adminFeedback.style.border = '1px solid rgba(231, 76, 60, 0.4)';
+          adminFeedback.style.color = '#e74c3c';
+          adminFeedback.textContent = 'Permission denied. Verify Firestore production rules.';
+        }
+      });
+
+      // Shut Down Event Handler
+      shutdownBtn.addEventListener('click', async () => {
+        if (!confirm("Are you sure you want to shut down the active event?")) return;
+
+        const eventDocRef = doc(db, "events", "active_challenge");
+
+        try {
+          await setDoc(eventDocRef, {
+            isActive: false,
+            title: "Event Closed",
+            description: "The event has been shut down by administration.",
+            prize: "None",
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+
+          adminFeedback.style.display = 'block';
+          adminFeedback.style.background = 'rgba(231, 76, 60, 0.15)';
+          adminFeedback.style.border = '1px solid rgba(231, 76, 60, 0.4)';
+          adminFeedback.style.color = '#e74c3c';
+          adminFeedback.textContent = 'Event successfully shut down!';
+        } catch (err) {
+          console.error("Shutdown error: ", err);
+          adminFeedback.style.display = 'block';
+          adminFeedback.style.background = 'rgba(231, 76, 60, 0.15)';
+          adminFeedback.style.border = '1px solid rgba(231, 76, 60, 0.4)';
+          adminFeedback.style.color = '#e74c3c';
+          adminFeedback.textContent = 'Failed to shut down event.';
+        }
+      });
+    </script>
+  </body>
+</html>
