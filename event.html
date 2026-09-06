@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One City SRP - Live Event Arena</title>
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://onecityrp.vercel.app/event.html" />
+    <meta property="og:title" content="One City Roleplay - Live Event Arena" />
+    <meta property="og:description" content="Participate in our live first-to-solve community challenge and win exclusive rewards!" />
+    <meta property="og:image" content="https://onecityrp.vercel.app/images/thumbnail.jpg" />
+    <meta property="og:site_name" content="One City Serious Roleplay" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/thumbnail.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- Background Video Overlay -->
+    <div class="video-overlay"></div>
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="image/flame.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="brand">
+        <img src="https://lanceehux.github.io/onecity/main-logo.jpg" alt="One City Logo" class="brand-logo" />
+        <span class="brand-title">One City</span>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="exam.html" class="nav-link">Exam</a>
+        <a href="event.html" class="nav-link active">Event Arena</a>
+      </nav>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+      
+      <!-- Hero Header -->
+      <section class="hero-section">
+        <span class="badge">Live Community Event</span>
+        <h1 class="hero-title">FIRST-TO-REACH ARENA</h1>
+        <p class="hero-desc">
+          Test your wits against the rest of the city. Read the active challenge synced live from the database, 
+          input your in-game details, and submit your answer. The absolute fastest citizen to crack it claims the prize!
+        </p>
+      </section>
+
+      <!-- Event Section Grid -->
+      <section class="profiles-section">
+        <div class="team-grid info-grid">
+          
+          <!-- Live Active Challenge Card -->
+          <div class="profile-card info-card">
+            <div class="profile-details" style="width: 100%;">
+              <h3 class="user-name info-title" id="displayEventTitle">Loading Active Challenge...</h3>
+              <div style="background: rgba(255, 205, 0, 0.05); border: 1px solid rgba(255, 205, 0, 0.2); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                <p style="color: var(--text-main); font-weight: 600; margin-bottom: 0.5rem;">Prize Pool: <span id="displayEventPrize" style="color: var(--primary-color);">--</span></p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;" id="displayEventDesc">
+                  <em>Fetching active question parameters from Firestore database...</em>
+                </p>
+              </div>
+
+              <!-- Public Submission Form -->
+              <form id="publicQuizForm" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="playerIgn" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">In-Game Name (IGN)</label>
+                  <input type="text" id="playerIgn" required placeholder="e.g., John_Doe" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <label for="playerAnswer" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Your Answer</label>
+                  <input type="text" id="playerAnswer" required placeholder="Type your answer here..." style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); font-family: var(--font-family); outline: none;" />
+                </div>
+
+                <button type="submit" class="role-tag" style="background: var(--primary-color); color: #111; border: none; font-weight: 700; cursor: pointer; margin-top: 0.5rem;">
+                  Submit Answer
+                </button>
+              </form>
+
+              <!-- Feedback Banner -->
+              <div id="publicFeedback" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 12px; text-align: center; font-weight: 600; font-size: 0.95rem;"></div>
+            </div>
+          </div>
+
+          <!-- Guidelines Card -->
+          <div class="profile-card info-card">
+            <div class="profile-details">
+              <h3 class="user-name info-title">Rules & Guidelines</h3>
+              <ul class="info-list">
+                <li>First to answer correctly wins instantly.</li>
+                <li>Once you win, create a ticket in the discord.</li>
+                <li>Winners will be announced globally via our Discord notification channel.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Modern Two-Tier Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-container">
+          
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-title">One City</span>
+            </div>
+            <p>A reborn city that awakened from the pandemic—seeking peace and kindness toward each citizen.</p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="exam.html">Exam</a></li>
+              <li><a href="event.html">Event Arena</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-socials">
+            <h4>Connect With Us</h4>
+            <div class="social-buttons">
+              <a href="#" class="social-btn dev-link facebook">Facebook</a>
+              <a href="https://discord.gg/qfGhbqQwU3" target="_blank" rel="noopener noreferrer" class="social-btn discord">Discord</a>
+              <a href="#" class="social-btn dev-link youtube">YouTube</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <p>&copy; 2026 One City Roleplay, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK Imports & Real-Time Sync Script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getFirestore, doc, getDoc, onSnapshot, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+      // Replace with your actual Firebase project credentials configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDLCBL9piQCoz2hHN0R7TCnqL6pirdVWlg",
+        authDomain: "onecity-event.firebaseapp.com",
+        projectId: "onecity-event",
+        storageBucket: "onecity-event.firebasestorage.app",
+        messagingSenderId: "959796416400",
+        appId: "1:959796416400:web:b34fe139f938fafe4ced15"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // DOM Elements
+      const displayEventTitle = document.getElementById('displayEventTitle');
+      const displayEventPrize = document.getElementById('displayEventPrize');
+      const displayEventDesc = document.getElementById('displayEventDesc');
+      const publicQuizForm = document.getElementById('publicQuizForm');
+      const publicFeedback = document.getElementById('publicFeedback');
+
+      // Navigation Mobile Toggle
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+      }
+
+      // Feature Development Prompt fallback
+      document.querySelectorAll('.dev-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('This feature is currently under development.');
+        });
+      });
+
+      // Real-time Firestore Listener tracking the active event challenge document
+      const eventDocRef = doc(db, "events", "active_challenge");
+
+      onSnapshot(eventDocRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          displayEventTitle.textContent = data.title || "Active Challenge";
+          displayEventPrize.textContent = data.prize || "No Prize Assigned";
+          displayEventDesc.innerHTML = `<em>"${data.description || "No description set."}"</em>`;
+        } else {
+          displayEventTitle.textContent = "No Active Event Found";
+          displayEventPrize.textContent = "None";
+          displayEventDesc.textContent = "An administrator has not initialized an active event challenge yet.";
+        }
+      }, (error) => {
+        console.error("Firestore sync error: ", error);
+        displayEventTitle.textContent = "Connection Error";
+        displayEventDesc.textContent = "Unable to fetch active challenge parameters from Firestore.";
+      });
+
+      // Public Form Submission & Verification Handler
+      publicQuizForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const ign = document.getElementById('playerIgn').value.trim();
+        const userAnswer = document.getElementById('playerAnswer').value.trim().toLowerCase();
+
+        try {
+          const currentSnap = await getDoc(eventDocRef);
+          if (!currentSnap.exists()) {
+            alert("No active challenge found right now.");
+            return;
+          }
+
+          const challengeData = currentSnap.data();
+
+          if (userAnswer === challengeData.secretAnswer) {
+            // Log winning submission into Firestore collection "winners"
+            await addDoc(collection(db, "winners"), {
+              ign: ign,
+              eventTitle: challengeData.title,
+              timestamp: serverTimestamp()
+            });
+
+            publicFeedback.style.display = 'block';
+            publicFeedback.style.background = 'rgba(46, 204, 113, 0.15)';
+            publicFeedback.style.border = '1px solid rgba(46, 204, 113, 0.4)';
+            publicFeedback.style.color = '#2ecc71';
+            publicFeedback.textContent = `VICTORY! Congratulations ${ign}, your correct answer was registered first!`;
+          } else {
+            publicFeedback.style.display = 'block';
+            publicFeedback.style.background = 'rgba(231, 76, 60, 0.15)';
+            publicFeedback.style.border = '1px solid rgba(231, 76, 60, 0.4)';
+            publicFeedback.style.color = '#e74c3c';
+            publicFeedback.textContent = `Incorrect answer, ${ign}. Keep trying before another citizen beats you to it!`;
+          }
+        } catch (err) {
+          console.error("Submission error: ", err);
+          publicFeedback.style.display = 'block';
+          publicFeedback.style.background = 'rgba(231, 76, 60, 0.15)';
+          publicFeedback.style.border = '1px solid rgba(231, 76, 60, 0.4)';
+          publicFeedback.style.color = '#e74c3c';
+          publicFeedback.textContent = 'An error occurred while validating your answer submission.';
+        }
+      });
+    </script>
+  </body>
+</html>
